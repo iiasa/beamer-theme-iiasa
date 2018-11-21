@@ -1,37 +1,17 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamerthemeiiasa}[2018/10/17 v0.1 IIASA Beamer theme]
+\ProvidesPackage{beamerthemeiiasa}[2018/11/21 v0.1 IIASA Beamer theme]
 
 \RequirePackage{tikz}
 \usetikzlibrary{calc}
 
+\providecommand{\tikzexternalenable}{}
+\providecommand{\tikzexternaldisable}{}
+\useinnertheme{iiasa}
+\useoutertheme{iiasa}
 \usecolortheme{iiasa}
 \usefonttheme{iiasa}
 
 \mode<presentation>
-
-% layout of the title slide including background images
-\setbeamertemplate{title page}{%
-  \begin{tikzpicture}[
-    overlay,
-    remember picture,
-    every node/.style={inner sep=0mm}
-    ]
-    % background
-    \node [anchor=north west]
-      at (current page.north west)
-      {\includegraphics[width=\paperwidth, height=\paperheight]{title.pdf}
-      };
-    % logo
-    \node [anchor=north east]
-      at ($(current page.north east) + (-3.4mm, -3.5mm)$)
-      {\includegraphics[height=8mm]{logo_white.eps}};
-    % title and subtitle
-    \node [anchor=north,align=center,text width=\paperwidth] at
-      ($(current page.north) - (0,28)$) {
-      \usebeamerfont{title}\usebeamercolor{title}\inserttitle \\
-      \usebeamerfont{subtitle}\usebeamercolor{subtitle}\insertsubtitle};
-  \end{tikzpicture}
-}
 
 % slide background
 \defbeamertemplate{background}{iiasa}{%
@@ -49,24 +29,9 @@
     \node [anchor=north east]
       at ($(current page.north east) + (-4mm, -2mm)$)
       {\includegraphics[height=9mm]{logo-short_white.eps}};
-    % % slide number, bottom right corner
-    % \node [anchor=center,font=\tiny\bfseries,white] at
-    %   ($(cecpslidelogo.west) + (3.4,0)$) {\insertframenumber};
   \end{tikzpicture}
 }
 \setbeamertemplate{background}[iiasa]
-
-% automatic title frames at the start of each section
-\setbeamertemplate{section page}{
-  \begin{centering}
-    \begin{beamercolorbox}[sep=12pt,center]{part title}
-      \usebeamerfont{section title}\usebeamercolor{title}%
-      \insertsection\par
-    \end{beamercolorbox}
-  \end{centering}
-}
-
-\AtBeginSection{\frame{\sectionpage}}
 
 \mode<all>
 

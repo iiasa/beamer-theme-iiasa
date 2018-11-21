@@ -1,0 +1,11 @@
+% copied from metropolis
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{frame numbering}{
+  \textbf{\insertframenumber}/\inserttotalframenumber
+  }
+\setbeamertemplate{footline}{%
+  \begin{tikzpicture}[overlay, remember picture]
+    \node [anchor = south east, inner sep = 2mm] at (current page.south east)
+      {\usebeamertemplate*{frame numbering}};
+  \end{tikzpicture}
+}
