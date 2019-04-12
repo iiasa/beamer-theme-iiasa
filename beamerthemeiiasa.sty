@@ -1,38 +1,43 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamerthemeiiasa}[2018/11/21 v0.1 IIASA Beamer theme]
+\ProvidesPackage{beamerthemeiiasa}[2019/04/12 v0.2 IIASA Beamer theme]
 
+\RequirePackage{pgfopts}
+
+% tikz: calc library features used to position background images
 \RequirePackage{tikz}
 \usetikzlibrary{calc}
 
+% If the user has not loaded the tikz 'external' library, make these no-ops
 \providecommand{\tikzexternalenable}{}
 \providecommand{\tikzexternaldisable}{}
+
+% Define one option
+\pgfkeys{
+  /iiasa/frametitle/.cd,
+    .is choice,
+    default/.code={},
+    long/.code={%
+      \setbeamertemplate{frametitle}[iiasa transparent]% transparent title bg
+      \setbeamercolor{frametitle}{bg=white}% instead of no background
+      \setbeamerfont{frametitle}{size=\large}% instead of \LARGE
+    },
+}
+
+% Default value for option
+\newcommand{\iiasa@setdefaults}{
+  \pgfkeys{/iiasa/.cd,
+    frametitle=default,
+  }
+}
+
+% Load the component themes
 \useinnertheme{iiasa}
 \useoutertheme{iiasa}
 \usecolortheme{iiasa}
 \usefonttheme{iiasa}
 
-\mode<presentation>
-
-% slide background
-\defbeamertemplate{background}{iiasa}{%
-  \begin{tikzpicture}[
-    overlay,
-    remember picture,
-    every node/.style={inner sep=0mm}
-    ]
-    % background
-    \node [anchor=north west]
-      at (current page.north west)
-      {\includegraphics[width=\paperwidth, height=\paperheight]{general.pdf}
-      };
-    % logo
-    \node [anchor=north east]
-      at ($(current page.north east) + (-4mm, -2mm)$)
-      {\includegraphics[height=9mm]{logo-short_white.eps}};
-  \end{tikzpicture}
-}
-\setbeamertemplate{background}[iiasa]
-
-\mode<all>
+% Process options
+\iiasa@setdefaults
+\ProcessPgfOptions{/iiasa}
 
 \endinput

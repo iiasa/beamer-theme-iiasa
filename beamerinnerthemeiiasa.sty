@@ -1,5 +1,5 @@
-% layout of the title slide including background images
-\setbeamertemplate{title page}{%
+% Title page: including background images
+\defbeamertemplate{title page}{iiasa}{%
   \begin{tikzpicture}[
     overlay,
     remember picture,
@@ -12,7 +12,6 @@
       };
     % logo
     \node [anchor=north east]
-%      at ($(current page.north east) + (-3.4mm, -3.5mm)$)
       at ($(current page.north east) + (-2mm, -2mm)$)
       {\includegraphics[height=8mm]{logo_white.eps}};
   \end{tikzpicture}
@@ -29,6 +28,7 @@
     \vspace*{1mm}
   \end{minipage}
 }
+
 % below this point copied from metropolis
 \def\maketitle{%
   \ifbeamer@inframe
@@ -38,7 +38,7 @@
   \fi
 }
 \def\titlepage{%
-  \usebeamertemplate{title page}
+  \usebeamertemplate{title page}[iiasa]
 }
 \setbeamertemplate{title graphic}{
   \vbox to 0pt {
@@ -51,8 +51,8 @@
   \parbox{0.9\textwidth}{%
   \raggedright%
   \linespread{1.0}%
-  \inserttitle%
-  \par}%
+  \inserttitle}%
+  \par%
   \vspace*{0.5em}
 }
 \setbeamertemplate{subtitle}{
@@ -86,6 +86,7 @@
   \insertinstitute%
   \par%
 }
+
 % below this point modified from beamerinnerthemedefault.sty
 \setbeamertemplate{section page}{
   \vfill%
@@ -95,3 +96,18 @@
   \vfill%
 }
 \AtBeginSection{\frame{\sectionpage}}
+
+% Footnotes: larger indent to clear background graphics
+\setbeamertemplate{footnote}
+{
+  \parindent 1em\noindent\hspace{20mm}%
+  \raggedright
+  \hbox to 1.8em{\hfil\insertfootnotemark}\insertfootnotetext\par%
+}
+
+% footnote rule
+\renewcommand\footnoterule{
+\moveright 10mm \vbox{\color{IIASAblue} \rule[1pt]{0.75\textwidth}{0.5pt}}}
+
+% Set templates
+\setbeamertemplate{title page}[iiasa]
