@@ -111,3 +111,11 @@
 
 % Set templates
 \setbeamertemplate{title page}[iiasa]
+
+% Conveniences
+\usepackage{newunicodechar}
+\newunicodechar{→}{$\rightarrow$}
+
+\newcommand{\iiasaicon}[1]{%
+  \raisebox{-0.15\baselineskip}{%
+    \includegraphics[height=2ex]{icon-#1.pdf}}}

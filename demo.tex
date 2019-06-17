@@ -4,8 +4,11 @@
 
 \title{Presentation title}
 \subtitle{Presentation subtitle}
-\author{Example Author \href{mailto:example@iiasa.ac.at}{\ttfamily <example@iiasa.ac.at>}}
-\date{CenSES Conference \\ Thursday, 22 November 2018}
+\author{Example Author
+  \href{mailto:example@iiasa.ac.at}%
+  {\ttfamily <example@iiasa.ac.at>}}
+\date{Weekday, 01 January 2019}
+\institute{Venue for presentation}
 
 \begin{document}
 
@@ -17,6 +20,12 @@ Here is some plain paragraph text.
 
 \end{frame}
 
+\begin{frame}{Table of Contents}
+
+\tableofcontents
+
+\end{frame}
+
 \section{Section header slide}
 
 \begin{frame}{Slide title}
@@ -24,7 +33,43 @@ Here is some plain paragraph text.
 \begin{itemize}
   \item Here is a bulleted list.
   \item Here is another bullet.
+    \footnote{Footnote text is indented to clear the background.}
 \end{itemize}
+
+\end{frame}
+
+\subsection{Subsection title}
+
+\begin{frame}{Style guide icons}
+
+\iiasaicon{arrow}
+\iiasaicon{calendar}
+\iiasaicon{cog}
+\iiasaicon{doc-text}
+\iiasaicon{globe}
+\iiasaicon{linegraph}
+\iiasaicon{linegraph2}
+\iiasaicon{link}
+\iiasaicon{location}
+\iiasaicon{man}
+\iiasaicon{search}
+\iiasaicon{share}
+\iiasaicon{woman}
+
+These can also be used as list bullets:
+
+\begin{itemize}
+  \item [\iiasaicon{cog}] Cog
+  \item [\iiasaicon{doc-text}] Text document
+\end{itemize}
+
+\end{frame}
+
+\appendix
+
+\begin{frame}{Supplementary material}
+
+This frame (after \texttt{\textbackslash{}appendix}) is not included in the total count.
 
 \end{frame}
 
