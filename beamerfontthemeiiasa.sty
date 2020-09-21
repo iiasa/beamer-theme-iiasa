@@ -1,11 +1,34 @@
 \RequirePackage[no-math]{fontspec}
 
-\setsansfont[
-  Mapping=tex-text,
-  AutoFakeSlant=0.3,
-  BoldFont={Tahoma Bold},
-  ]{Tahoma}
+\IfFontExistsTF{Tahoma}{
+  \setsansfont[
+    Mapping=tex-text,
+    AutoFakeSlant=0.3,
+    BoldFont={Tahoma Bold},
+    ]{Tahoma}
 
-\setbeamerfont{title}{size=\Huge}
-\setbeamerfont{frametitle}{size=\LARGE}
-\setbeamerfont{section title}{size=\Huge}
+  \setbeamerfont{title}{size=\Huge}
+  \setbeamerfont{frametitle}{size=\LARGE}
+  \setbeamerfont{section title}{size=\Huge}
+}{
+  \PackageWarning{beamerthemeiiasa}{%
+    Could not find Tahoma font; falling back to Fira Sans%
+  }
+
+  % Imitate the 'metropolis' theme
+  \setsansfont[
+    UprightFont = FiraSans-Light,%
+    ItalicFont = FiraSans-LightItalic,%
+    BoldFont = FiraSans-Regular,%
+    BoldItalicFont = FiraSans-Italic]%
+    {FiraSans}%
+  \setmonofont[
+    UprightFont = FiraMono-Regular,%
+    BoldFont = FiraMono-Medium]%
+    {FiraMono}%
+
+  % Since the default weight is light, make titles bold
+  \setbeamerfont{title}{size=\Huge, series=\bfseries}
+  \setbeamerfont{frametitle}{size=\LARGE, series=\bfseries}
+  \setbeamerfont{section title}{size=\Huge, series=\bfseries}
+}
