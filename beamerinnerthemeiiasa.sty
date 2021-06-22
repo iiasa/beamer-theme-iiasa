@@ -95,7 +95,11 @@
   \end{beamercolorbox}
   \vfill%
 }
-\AtBeginSection{\frame{\sectionpage}}
+\AtBeginSection{{%
+  \setbeamercolor{background canvas}{bg=IIASAblue}
+  \setbeamertemplate{background}[iiasa section]
+  \frame{\sectionpage}%
+}}
 
 % Footnotes: larger indent to clear background graphics
 \setbeamertemplate{footnote}

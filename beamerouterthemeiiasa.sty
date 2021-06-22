@@ -19,6 +19,19 @@
   \end{tikzpicture}
 }
 
+\defbeamertemplate{background}{iiasa section}{%
+  \begin{tikzpicture}[
+    overlay,
+    remember picture,
+    every node/.style={inner sep=0mm}
+    ]
+    % logo
+    \node [anchor=north east]
+      at ($(current page.north east) + (-4mm, -2mm)$)
+      {\includegraphics[height=9mm]{logo-short_white.eps}};
+  \end{tikzpicture}
+}
+
 % Footline: display the frame number
 \defbeamertemplate{footline}{iiasa}{%
   \begin{tikzpicture}[overlay, remember picture]
