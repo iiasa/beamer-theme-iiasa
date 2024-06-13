@@ -1,0 +1,83 @@
+\ProvidesPackage{beamerthemeiiasaposter}[2024/06/05 v0.4 IIASA poster theme]
+
+\usecolortheme{iiasa}
+
+\PassOptionsToPackage{orientation=portrait,size=A0,scale=1.4}{beamerposter}
+\RequirePackage{beamerposter}
+
+\mode<presentation>
+
+% headline colors and fonts
+\setbeamercolor{headline}{fg=white,bg=IIASAblue}
+\setbeamercolor{separation line}{bg=IIASAteal}
+\setbeamerfont{headline}{size=\large}
+\setbeamerfont{title in headline}{size=\huge,series=\bfseries}
+\setbeamerfont{author in headline}{series=\bfseries}
+
+% footline colors and fonts
+\setbeamercolor{footline}{fg=white,bg=IIASAblue}
+\setbeamerfont{footline}{size=\normalsize}
+
+\setbeamertemplate{navigation symbols}{}
+
+% block enviroment
+\setbeamercolor{block title}{fg=white,bg=IIASAblue}
+\setbeamercolor{block body}{bg=white}
+\setbeamerfont{block title}{size=\large,series=\bfseries}
+\setbeamercolor{block title alerted}{fg=white,bg=IIASAred}
+\setbeamercolor{block body alerted}{bg=white}
+\addtobeamertemplate{block end}{}{\vspace*{1cm}}
+\addtobeamertemplate{block alerted end}{}{\vspace*{1cm}}
+
+
+% structure text
+\setbeamercolor{structure}{fg=IIASAblue}
+\setbeamerfont{structure}{size=\large}
+\setbeamertemplate{structure end}{\color{fg}\hrule}
+
+\setbeamertemplate{headline}{
+\leavevmode
+
+\begin{beamercolorbox}[wd=\paperwidth]{headline}
+\begin{columns}[T]
+  \begin{column}{.02\paperwidth}\end{column}
+  \begin{column}{.81\paperwidth}
+    \raggedleft
+    \usebeamerfont{headline}
+    \vspace{4ex} % keep the following blank line
+
+    {\usebeamercolor{title in headline}\usebeamerfont{title in headline}%
+      \inserttitle\\[1ex]}
+    {\usebeamercolor{author in headline} \insertauthor\\[1ex]}
+    {\usebeamercolor{institute in headline} \insertinstitute\\[1ex]}
+  \end{column}
+  \begin{column}{.02\paperwidth}\end{column}
+  \begin{column}{.13\paperwidth}
+    \vspace{5ex} % keep the following blank line
+
+    \includegraphics[width=.1\paperwidth]{logo-short_white}
+  \end{column}
+  \begin{column}{.02\paperwidth}\end{column}
+\end{columns}
+\end{beamercolorbox}
+
+\begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
+\rule{0pt}{1ex}
+\end{beamercolorbox}
+}
+
+
+\setbeamertemplate{footline}{
+\begin{beamercolorbox}[wd=\paperwidth]{upper separation line foot}
+\rule{0pt}{0.5ex}
+\end{beamercolorbox}
+
+\begin{beamercolorbox}[ht=7ex,leftskip=1cm,rightskip=1cm]{footline}%
+\insertfootlinetext
+\vskip1ex
+\end{beamercolorbox}
+
+\begin{beamercolorbox}[wd=\paperwidth]{lower separation line foot}
+\rule{0pt}{0.5ex}
+\end{beamercolorbox}
+}

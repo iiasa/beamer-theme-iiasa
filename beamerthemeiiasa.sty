@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamerthemeiiasa}[2019/04/12 v0.2 IIASA Beamer theme]
+\ProvidesPackage{beamerthemeiiasa}[2024/06/05 v0.3 IIASA Beamer theme]
 
 \RequirePackage{pgfopts}
 
@@ -11,7 +11,7 @@
 \providecommand{\tikzexternalenable}{}
 \providecommand{\tikzexternaldisable}{}
 
-% Define one option
+% Define options
 \pgfkeys{
   /iiasa/frametitle/.cd,
     .is choice,
@@ -22,19 +22,29 @@
       \setbeamerfont{frametitle}{size=\large}% instead of \LARGE
     },
 }
+\pgfkeys{/iiasa/theme/version/.is choice}
+\pgfkeys{/iiasa/theme/version/default/.code={%
+    \useinnertheme{iiasa_2024}%
+    \useoutertheme{iiasa_2024}%
+    \usecolortheme{iiasa_2024}%
+    \usefonttheme{iiasa_2024}%
+    }
+}
+\pgfkeys{/iiasa/theme/version/legacy/.code={%
+    \useinnertheme{iiasa_2024}%
+    \useoutertheme{iiasa_2024}%
+    \usecolortheme{iiasa_2024}%
+    \usefonttheme{iiasa_2024}%
+    }
+}
+\pgfkeys{/iiasa/theme/version/.default=default}
 
-% Default value for option
+% Default value for options
 \newcommand{\iiasa@setdefaults}{
   \pgfkeys{/iiasa/.cd,
-    frametitle=default,
+    /iiasa/frametitle=default,%
   }
 }
-
-% Load the component themes
-\useinnertheme{iiasa}
-\useoutertheme{iiasa}
-\usecolortheme{iiasa}
-\usefonttheme{iiasa}
 
 % Process options
 \iiasa@setdefaults

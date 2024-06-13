@@ -1,0 +1,180 @@
+% Title page: including background images
+\defbeamertemplate{title page}{iiasa}{%
+  \begin{tikzpicture}[
+    overlay,
+    remember picture,
+    every node/.style = {inner sep = 0mm, white},
+    ]
+    % background
+    \node [anchor=north west]
+      at (current page.north west)
+      {\includegraphics[width=\paperwidth, height=\paperheight]{background_all_purple.pdf}
+      };
+    % logo
+    \node [anchor=north west]
+      at ($(current page.north west) + (10.5mm, -5mm)$)
+      {\includegraphics[height=8mm]{logo_white.eps}};
+  \end{tikzpicture}
+  \begin{minipage}[b][\paperheight]{\textwidth}
+    \usebeamertemplate*{title graphic}%
+    \vfill%
+    \usebeamertemplate*{title}%
+    \usebeamertemplate*{subtitle}%
+    \usebeamertemplate*{title separator}
+    \usebeamertemplate*{author}%
+    \usebeamertemplate*{date}%
+    \usebeamertemplate*{institute}%
+    \vfill%``
+    \vspace*{1mm}
+  \end{minipage}
+}
+
+% below this point copied from metropolis
+\def\maketitle{%
+  \ifbeamer@inframe
+    \titlepage
+  \else
+    \frame[plain,noframenumbering]{\titlepage}
+  \fi
+}
+\def\titlepage{%
+  \usebeamertemplate{title page}[iiasa]
+}
+\setbeamertemplate{title graphic}{
+  \vbox to 0pt {
+    \vspace*{2em}
+    \inserttitlegraphic%
+  }%
+  \nointerlineskip%
+}
+\setbeamertemplate{title}{
+  \parbox{0.9\textwidth}{%
+  \raggedright%
+  \linespread{1.0}%
+  \inserttitle}%
+  \par%
+  \vspace*{0.5em}
+}
+\setbeamertemplate{subtitle}{
+  \raggedright%
+  \insertsubtitle%
+  \par%
+  \vspace*{0.5em}
+}
+\newlength{\metropolis@titleseparator@linewidth}
+\setlength{\metropolis@titleseparator@linewidth}{0.4pt}
+\setbeamertemplate{title separator}{
+  \tikzexternaldisable%
+  \begin{tikzpicture}
+    \fill[fg] (0,0) rectangle (\textwidth, \metropolis@titleseparator@linewidth);
+  \end{tikzpicture}%
+  \tikzexternalenable%
+  \par%
+}
+\setbeamertemplate{author}{
+  \vspace*{2em}
+  \insertauthor%
+  \par%
+  \vspace*{0.25em}
+}
+\setbeamertemplate{date}{
+  \insertdate%
+  \par%
+}
+\setbeamertemplate{institute}{
+  \vspace*{3mm}
+  \insertinstitute%
+  \par%
+}
+
+% below this point modified from beamerinnerthemedefault.sty
+\defbeamertemplate{section page}{iiasa}{%
+  \begin{tikzpicture}[
+    overlay,
+    remember picture,
+    every node/.style = {inner sep = 0mm, white},
+    ]
+    % background
+    \node [anchor=north west]
+      at (current page.north west)
+      {\includegraphics[width=\paperwidth, height=\paperheight]{background_all_purple.pdf}
+      };
+  \end{tikzpicture}
+  \begin{minipage}[b][\paperheight]{\textwidth}
+    \vfill%
+    \begin{beamercolorbox}[sep=12pt]{section title}
+        \usebeamerfont{section title}\insertsection\par
+    \end{beamercolorbox}
+    \vfill%``
+    \vspace*{1mm}
+  \end{minipage}
+}
+\AtBeginSection{{%
+  \setbeamertemplate{section page}[iiasa]
+  \frame[plain,noframenumbering]{\sectionpage}%
+}}
+
+% Footnotes: larger indent to clear background graphics
+\setbeamertemplate{footnote}
+{
+  \parindent 1em\noindent\hspace{20mm}%
+  \raggedright
+  \hbox to 1.8em{\hfil\insertfootnotemark}\insertfootnotetext\par%
+}
+
+% footnote rule
+\renewcommand\footnoterule{
+\moveright 10mm \vbox{\color{white} \rule[1pt]{0.75\textwidth}{0.5pt}}}
+
+% Set templates
+\setbeamertemplate{title page}[iiasa]
+
+% Conveniences
+\usepackage{newunicodechar}
+\newunicodechar{→}{$\rightarrow$}
+
+\newcommand{\iiasaicon}[1]{%
+  \raisebox{-0.15\baselineskip}{%
+    \includegraphics[height=2ex]{icon-#1.pdf}}}
+
+\defbeamertemplate{final slide}{iiasa}{%
+    \begin{tikzpicture}[
+        overlay,
+        remember picture,
+        every node/.style = {inner sep = 0mm, white},
+    ]
+        % background
+        \node [anchor=north west]
+              at (current page.north west)
+              {\includegraphics[width=\paperwidth, height=\paperheight]{background_all_purple.pdf}
+              };
+        % logo
+        \node [anchor=north west]
+              at ($(current page.north west) + (10.5mm, -5mm)$)
+              {\includegraphics[height=8mm]{logo_white.eps}};
+    \end{tikzpicture}
+    \begin{minipage}[b][\paperheight]{\textwidth}
+        \vfill%
+        \Huge \bfseries \color{white} Thank you!
+        \vfill%``
+        \vspace*{1mm}
+    \end{minipage}
+}
+\setbeamertemplate{final slide}[iiasa]
+
+% TODO count slides w/o framenumbering for maximum slides, too
+% Not sure whay this does:
+% \def\makefinalslide{%
+%   \ifbeamer@inframe
+%     \finalslide
+%   \else
+%     \frame[plain,noframenumbering]{\finalslide}
+%   \fi
+% }
+
+\def\makefinalslide{%
+    \frame[plain,noframenumbering]{\finalslide}
+}
+\def\finalslide{%
+  \usebeamertemplate{final slide}[iiasa]
+}
