@@ -1,31 +1,36 @@
+% Common colors
 \definecolor{IIASAblue}{HTML}{00589d}  % or {CMYK}{100,60,0,15}
 \definecolor{IIASAteal}{HTML}{62c5c0}  % or {CMYK}{58,0,29,0}
 \definecolor{IIASAgreen}{HTML}{247f6e}  % or {CMYK}{83,30,62,11}
 \definecolor{IIASAyellow}{HTML}{fdbb40}  % or {CMYK}{0,29,85,0}
 \definecolor{IIASAred}{HTML}{ee6a6b}  % or {CMYK}{1,73,50,0}
+
+% Different by version
 \definecolor{IIASApurple}{HTML}{483D8B}  % or {rgb}{0.28, 0.24, 0.55}
+\colorlet{IIASAurlcolor}{IIASAyellow}
 
-
-\hypersetup{
-  colorlinks,
-  linkcolor=,
-  urlcolor=IIASAyellow,
-  citecolor=,
-  }
-
-\setbeamercolor{title}{fg=white}
 \setbeamercolor{structure}{use=normal text, fg=IIASAgreen}
-\setbeamercolor{alerted text}{fg=IIASAred}
+\setbeamercolor{title}{fg=white}
 \setbeamercolor{subtitle}{fg=white}
-\setbeamercolor{section title}{fg=white}
-\setbeamercolor{frametitle}{fg=IIASApurple}
-\setbeamercolor{frame numbering}{fg=white}
+
 \setbeamercolor{author}{fg=white}
 \setbeamercolor{date}{fg=white}
 \setbeamercolor{institute}{fg=white}
 \setbeamercolor{title separator}{fg=white}
+
+\setbeamercolor{section title}{fg=white}
+\setbeamercolor{frametitle}{fg=IIASApurple}
+\setbeamercolor{frame numbering}{fg=white}
+
+\setbeamercolor{alerted text}{fg=IIASAred}
 \setbeamercolor{item}{fg=IIASApurple}
-% NB this doesn't work; need to override \alert{} to draw the background
-%\setbeamercolor{alerted text}{use=normal text, bg=IIASAyellow}
+
+% Colors of internal and external links
+\hypersetup{
+  colorlinks,
+  linkcolor=,
+  urlcolor=IIASAurlcolor,
+  citecolor=,
+  }
 
 \endinput

@@ -1,25 +1,33 @@
+% Common colors
 \definecolor{IIASAblue}{HTML}{00589d}  % or {CMYK}{100,60,0,15}
 \definecolor{IIASAteal}{HTML}{62c5c0}  % or {CMYK}{58,0,29,0}
 \definecolor{IIASAgreen}{HTML}{247f6e}  % or {CMYK}{83,30,62,11}
 \definecolor{IIASAyellow}{HTML}{fdbb40}  % or {CMYK}{0,29,85,0}
 \definecolor{IIASAred}{HTML}{ee6a6b}  % or {CMYK}{1,73,50,0}
+
+% Different by version
 \definecolor{IIASApurple}{HTML}{6a4c93}  % or {CMYK}{70,82,9,1}
+\colorlet{IIASAurlcolor}{IIASAgreen}
 
-\hypersetup{
-  colorlinks,
-  linkcolor=,
-  urlcolor=IIASAgreen,
-  citecolor=,
-  }
-
-\setbeamercolor{title}{fg=IIASAblue}
 \setbeamercolor{structure}{use=normal text, fg=IIASAblue}
-\setbeamercolor{alerted text}{fg=IIASAred}
-% NB this doesn't work; need to override \alert{} to draw the background
-%\setbeamercolor{alerted text}{use=normal text, bg=IIASAyellow}
+\setbeamercolor{title}{fg=IIASAblue}
 \setbeamercolor{subtitle}{fg=black}
+
 \setbeamercolor{section title}{fg=white}
 \setbeamercolor{frametitle}{fg=IIASAblue}
 \setbeamercolor{frame numbering}{fg=IIASAblue}
+
+
+\setbeamercolor{alerted text}{fg=IIASAred}
+% NB this doesn't work; need to override \alert{} to draw the background
+%\setbeamercolor{alerted text}{use=normal text, bg=IIASAyellow}
+
+% Colors of internal and external links
+\hypersetup{
+  colorlinks,
+  linkcolor=,
+  urlcolor=IIASAurlcolor,
+  citecolor=,
+  }
 
 \endinput
