@@ -61,12 +61,12 @@
   \par%
   \vspace*{0.5em}
 }
-\newlength{\metropolis@titleseparator@linewidth}
-\setlength{\metropolis@titleseparator@linewidth}{0.4pt}
+
+\setlength{\iiasa@titleseparator@linewidth}{0.4pt}
 \setbeamertemplate{title separator}{
   \tikzexternaldisable%
   \begin{tikzpicture}
-    \fill[fg] (0,0) rectangle (\textwidth, \metropolis@titleseparator@linewidth);
+    \fill[fg] (0,0) rectangle (\textwidth, \iiasa@titleseparator@linewidth);
   \end{tikzpicture}%
   \tikzexternalenable%
   \par%
@@ -88,7 +88,7 @@
 }
 
 % below this point modified from beamerinnerthemedefault.sty
-\setbeamertemplate{section page}{
+\defbeamertemplate{section page}{iiasa}{%
   \vfill%
   \begin{beamercolorbox}[sep=12pt]{section title}
     \usebeamerfont{section title}\insertsection\par
@@ -96,14 +96,13 @@
   \vfill%
 }
 \AtBeginSection{{%
-  \setbeamercolor{background canvas}{bg=IIASAblue}
   \setbeamertemplate{background}[iiasa section]
+  \setbeamercolor{background canvas}{bg=IIASAblue}
   \frame{\sectionpage}%
 }}
 
 % Footnotes: larger indent to clear background graphics
-\setbeamertemplate{footnote}
-{
+\setbeamertemplate{footnote}{
   \parindent 1em\noindent\hspace{20mm}%
   \raggedright
   \hbox to 1.8em{\hfil\insertfootnotemark}\insertfootnotetext\par%
@@ -113,13 +112,13 @@
 \renewcommand\footnoterule{
 \moveright 10mm \vbox{\color{IIASAblue} \rule[1pt]{0.75\textwidth}{0.5pt}}}
 
+\defbeamertemplate{final slide}{iiasa}{%
+  \vfill%
+  \Huge \structure{Thank you!}
+  \vfill%
+}
+
 % Set templates
 \setbeamertemplate{title page}[iiasa]
-
-% Conveniences
-\usepackage{newunicodechar}
-\newunicodechar{→}{$\rightarrow$}
-
-\newcommand{\iiasaicon}[1]{%
-  \raisebox{-0.15\baselineskip}{%
-    \includegraphics[height=2ex]{icon-#1.pdf}}}
+\setbeamertemplate{section page}[iiasa]
+\setbeamertemplate{final slide}[iiasa]
