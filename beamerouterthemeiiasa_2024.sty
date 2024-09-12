@@ -1,0 +1,80 @@
+% Define templates
+
+% Background
+\defbeamertemplate{background}{iiasa text}{%
+  \begin{tikzpicture}[
+    overlay,
+    remember picture,
+    every node/.style={inner sep=0mm}
+    ]
+    % background
+    \node [anchor=north west]
+      at (current page.north west)
+      {\includegraphics[width=\paperwidth, height=\paperheight]{background_purple_stripe.pdf}
+      };
+    % logo
+    \node [anchor=north]
+      at ($(current page.south east) + (-20mm, 6.5mm)$)
+      {\includegraphics[height=5mm]{logo_white.eps}};
+  \end{tikzpicture}
+}
+
+\defbeamertemplate{background}{iiasa section}{%
+\begin{tikzpicture}[
+  overlay,
+  remember picture,
+  every node/.style = {inner sep = 0mm, white},
+  ]
+  % background
+  \node [anchor=north west]
+    at (current page.north west)
+    {\includegraphics[width=\paperwidth, height=\paperheight]{background_all_purple.pdf}};
+\end{tikzpicture}
+}
+
+% TODO
+% The idea here is to have slide 7 from the pptx template available as well
+% So one could call \setbeamertemplate{background}[iiasa image] before such
+% a frame and afterwards
+% Calling it 'image' because this is what I envision as the main use case
+% Still need to remove framenumber and logo from such pages (and possibly
+% set font color to white)
+\defbeamertemplate{background}{iiasa image}{%
+  \begin{tikzpicture}[
+    overlay,
+    remember picture,
+    every node/.style={inner sep=0mm}
+    ]
+    % background
+    \node [anchor=north west]
+      at (current page.north west)
+      {\includegraphics[width=\paperwidth, height=\paperheight]{background_all_purple.pdf}
+      };
+    % logo
+    \node [anchor=north]
+      at ($(current page.south east) + (-20mm, 6.5mm)$)
+      {\includegraphics[height=5mm]{logo_white.eps}};
+  \end{tikzpicture}
+}
+
+% Footline: display the frame number
+\defbeamertemplate{footline}{iiasa}{%
+  \begin{tikzpicture}[overlay, remember picture]
+    \node [anchor = north east, inner sep = 2mm] at ($(current page.south west) +(16mm, 6.5mm)$)
+      {\usebeamertemplate*{frame numbering}};
+  \end{tikzpicture}
+}
+
+% Frame numbering: show totals
+\defbeamertemplate{frame numbering}{iiasa}{
+  \textbf{\insertframenumber}/\insertpresentationendframe
+}
+
+% Navigation symbols: clear
+\defbeamertemplate{navigation symbols}{iiasa}{}
+
+% Set templates
+\setbeamertemplate{background}[iiasa text]
+\setbeamertemplate{footline}[iiasa]
+\setbeamertemplate{frame numbering}[iiasa]
+\setbeamertemplate{navigation symbols}[iiasa]

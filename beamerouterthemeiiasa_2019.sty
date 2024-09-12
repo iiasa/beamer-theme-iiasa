@@ -1,7 +1,7 @@
 % Define templates
 
 % Background
-\defbeamertemplate{background}{iiasa}{%
+\defbeamertemplate{background}{iiasa text}{%
   \begin{tikzpicture}[
     overlay,
     remember picture,
@@ -43,7 +43,7 @@
 % Frame numbering: show totals
 \defbeamertemplate{frame numbering}{iiasa}{
   \textbf{\insertframenumber}/\insertpresentationendframe
-  }
+}
 
 % Frame title: beamer default, modified to set opacity (two lines marked <--)
 % TODO limit the width of the title box (i.e. don't overlap the upper-right
@@ -74,15 +74,8 @@
 % Navigation symbols: clear
 \defbeamertemplate{navigation symbols}{iiasa}{}
 
-% \insertpresentationendframe
-% see: https://tex.stackexchange.com/a/50090/94986
-\def\insertpresentationendframe{\inserttotalframenumber}
-\g@addto@macro{\appendix}{%
-\immediate\write\@auxout{\string\@writefile{nav}{\noexpand\headcommand{\noexpand\def\noexpand\insertpresentationendframe{\the\c@framenumber}}}}
-}
-
 % Set templates
-\setbeamertemplate{background}[iiasa]
+\setbeamertemplate{background}[iiasa text]
 \setbeamertemplate{footline}[iiasa]
 \setbeamertemplate{frame numbering}[iiasa]
 \setbeamertemplate{navigation symbols}[iiasa]

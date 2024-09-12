@@ -1,14 +1,13 @@
 \documentclass[aspectratio=169]{beamer}
 
-\usetheme{iiasa}
-% \usetheme[version=2024]{iiasa}
+\usetheme[version=2019]{iiasa}
 
 \title{Presentation title}
 \subtitle{Presentation subtitle}
 \author{Example Author
   \href{mailto:example@iiasa.ac.at}%
   {\ttfamily <example@iiasa.ac.at>}}
-\date{Weekday, 01 January 2024}
+\date{Weekday, 01 January 2019}
 \institute{Venue for presentation}
 
 \begin{document}
@@ -40,6 +39,24 @@
 \end{frame}
 
 \subsection{Subsection title}
+
+{
+\pgfkeys{/iiasa/frametitle=long}
+\begin{frame}[fragile]
+
+\frametitle{Here is a frame title that is exceptionally long, so much so that it overlaps the theme elements}
+
+The frame is enclosed in a group with:
+\begin{verbatim}
+{
+\pgfkeys{/iiasa/frametitle=long}
+…
+}
+\end{verbatim}
+…to make the title readable.
+
+\end{frame}
+}
 
 \begin{frame}{Style guide icons}
 
