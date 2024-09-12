@@ -1,6 +1,6 @@
-all: demo.pdf
+all: demo.pdf demo-2019.pdf
 
-demo.pdf: demo.tex FORCE_LATEXMK
+%.pdf: %.tex FORCE_LATEXMK
 	latexmk -xelatex $<
 
 .PHONY: FORCE_LATEXMK
