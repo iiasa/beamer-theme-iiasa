@@ -16,6 +16,9 @@ Contributions and refinements from IIASA colleagues are welcome.
   ```
   The 2024 version is default and will be selected if no option is given.
 
+- **Install fonts.** The 2019 version of the theme uses Tahoma (if available; proprietary) or Fira (free) fonts.
+  The 2024 version uses Source Sans Pro, which is available in the TeXLive package of the same name.
+
 - The title frame, section frames, and a “Thank you!” frame (see below) are displayed with a **coloured or image background** and the **IIASA logo**.
   The files used for this purpose are in the `image/` directory.
 - The IIASA **colours** are available, including e.g. `IIASAblue`.

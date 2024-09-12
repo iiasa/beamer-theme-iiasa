@@ -1,5 +1,11 @@
 \RequirePackage[no-math]{fontspec}
 
+% Font sizes and weights for structural texts
+\setbeamerfont{title}{size=\Huge, series=\bfseries}
+\setbeamerfont{frametitle}{size=\LARGE, series=\bfseries}
+\setbeamerfont{section title}{size=\Huge, series=\bfseries}
+
+% Default font: Tahoma
 \IfFontExistsTF{Tahoma}{
   \setsansfont[
     Mapping=tex-text,
@@ -7,9 +13,9 @@
     BoldFont={Tahoma Bold},
     ]{Tahoma}
 
-  \setbeamerfont{title}{size=\Huge}
-  \setbeamerfont{frametitle}{size=\LARGE}
-  \setbeamerfont{section title}{size=\Huge}
+  \setbeamerfont{title}{series=\normalfont}
+  \setbeamerfont{frametitle}{series=\normalfont}
+  \setbeamerfont{section title}{series=\normalfont}
 }{
   \PackageWarning{beamerthemeiiasa}{%
     Could not find Tahoma font; falling back to Fira Sans%
@@ -28,9 +34,4 @@
     UprightFont = FiraMono-Regular,%
     BoldFont = FiraMono-Medium]%
     {FiraMono}%
-
-  % Since the default weight is light, make titles bold
-  \setbeamerfont{title}{size=\Huge, series=\bfseries}
-  \setbeamerfont{frametitle}{size=\LARGE, series=\bfseries}
-  \setbeamerfont{section title}{size=\Huge, series=\bfseries}
 }
