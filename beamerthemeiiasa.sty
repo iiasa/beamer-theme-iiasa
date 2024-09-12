@@ -13,41 +13,62 @@
 
 % Define options
 \pgfkeys{
+  /iiasa/version/.cd,
+    .is choice,
+    .store in=\iiasa@themeversion,
+    2024/.code={},
+    2019/.code={},
+  % NB This is only supported in the 2019 theme
   /iiasa/frametitle/.cd,
     .is choice,
+    .initial=default,
     default/.code={},
     long/.code={%
-      \setbeamertemplate{frametitle}[iiasa transparent]% transparent title bg
-      \setbeamercolor{frametitle}{bg=white}% instead of no background
-      \setbeamerfont{frametitle}{size=\large}% instead of \LARGE
+      \setbeamertemplate{frametitle}[iiasa transparent] % transparent title bg
+      \setbeamercolor{frametitle}{bg=white} % instead of no background
+      \setbeamerfont{frametitle}{size=\large} % instead of \LARGE
     },
 }
-\pgfkeys{/iiasa/theme/version/.is choice}
-\pgfkeys{/iiasa/theme/version/default/.code={%
-    \useinnertheme{iiasa_2024}%
-    \useoutertheme{iiasa_2024}%
-    \usecolortheme{iiasa_2024}%
-    \usefonttheme{iiasa_2024}%
-    }
-}
-\pgfkeys{/iiasa/theme/version/legacy/.code={%
-    \useinnertheme{iiasa_2024}%
-    \useoutertheme{iiasa_2024}%
-    \usecolortheme{iiasa_2024}%
-    \usefonttheme{iiasa_2024}%
-    }
-}
-\pgfkeys{/iiasa/theme/version/.default=default}
 
-% Default value for options
-\newcommand{\iiasa@setdefaults}{
-  \pgfkeys{/iiasa/.cd,
-    /iiasa/frametitle=default,%
-  }
-}
+% Command to set default values
+\newcommand{\iiasa@setdefaults}{\pgfkeys{/iiasa/version=2024}}
 
 % Process options
 \iiasa@setdefaults
 \ProcessPgfOptions{/iiasa}
+
+%%% Common definitions used in sub-themes
+\newlength{\iiasa@titleseparator@linewidth}
+
+% \insertpresentationendframe
+% see: https://tex.stackexchange.com/a/50090/94986
+\def\insertpresentationendframe{\inserttotalframenumber}
+\g@addto@macro{\appendix}{%
+\immediate\write\@auxout{\string\@writefile{nav}{\noexpand\headcommand{\noexpand\def\noexpand\insertpresentationendframe{\the\c@framenumber}}}}
+}
+
+% Use the appropriate sub-themes
+\RequirePackage{ifthen}
+
+\ifthenelse{\equal{\iiasa@themeversion}{2024}}{
+\usetheme{iiasa_2024}
+}{
+\usetheme{iiasa_2019}
+}
+
+% Common utilities
+\newcommand{\iiasaicon}[1]{%
+  \raisebox{-0.15\baselineskip}{%
+    \includegraphics[height=2ex]{icon-#1.pdf}}}
+
+\def\makefinalslide{%
+  \frame[plain,noframenumbering]{\finalslide}
+}
+\def\finalslide{%
+  \usebeamertemplate{final slide}
+}
+
+\RequirePackage{newunicodechar}
+\newunicodechar{→}{$\rightarrow$}
 
 \endinput
