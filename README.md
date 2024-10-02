@@ -12,7 +12,7 @@ Contributions and refinements from IIASA colleagues are welcome.
 - **Select theme version.** Use either the 2019 or 2024 version of the theme:
   ```latex
   \documentclass[aspectratio=169]{beamer}
-  \usetheme[version=2024]{beamer}
+  \usetheme[version=2024]{iiasa}
   ```
   The 2024 version is default and will be selected if no option is given.
 
