@@ -1,4 +1,4 @@
-all: 2019.pdf 2024.pdf
+all: 2019.pdf 2024.pdf 2025.pdf
 
 %.pdf: %.tex FORCE_LATEXMK
 	latexmk -xelatex $<
