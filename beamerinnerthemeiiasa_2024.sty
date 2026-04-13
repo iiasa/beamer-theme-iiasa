@@ -1,18 +1,18 @@
 \newcommand\iiasa@titlebackground{
-\begin{tikzpicture}[
-  overlay,
-  remember picture,
-  every node/.style = {inner sep = 0mm, white},
-  ]
-  % background
-  \node [anchor=north west]
+  \begin{tikzpicture}[
+      overlay,
+      remember picture,
+      every node/.style = {inner sep = 0mm, white},
+    ]
+    % background
+    \node [anchor=north west]
     at (current page.north west)
-    {\includegraphics[width=\paperwidth, height=\paperheight]{background_all_purple.pdf}};
-  % logo
-  \node [anchor=north west]
+    {\includegraphics[width=\paperwidth, height=\paperheight]{background-2024-title.pdf}};
+    % logo
+    \node [anchor=north west]
     at ($(current page.north west) + (10.5mm, -5mm)$)
-    {\includegraphics[height=8mm]{logo_white.eps}};
-\end{tikzpicture}
+    {\includegraphics[height=8mm]{logo_white}};
+  \end{tikzpicture}
 }
 
 % Title page: including background images
@@ -45,24 +45,24 @@
 }
 \setbeamertemplate{title graphic}{
   \vbox to 0pt {
-    \vspace*{2em}
-    \inserttitlegraphic%
-  }%
+      \vspace*{2em}
+      \inserttitlegraphic%
+    }%
   \nointerlineskip%
 }
 \setbeamertemplate{title}{
   \parbox{0.9\textwidth}{%
-  \raggedright%
-  \linespread{1.0}%
-  \inserttitle}%
+    \raggedright%
+    \linespread{1.0}%
+    \inserttitle}%
   \par%
-  \vspace*{0.5em}
+  %\vspace*{0.5em}
 }
 \setbeamertemplate{subtitle}{
   \raggedright%
   \insertsubtitle%
   \par%
-  \vspace*{0.5em}
+  %\vspace*{0.5em}
 }
 
 \setlength{\iiasa@titleseparator@linewidth}{0.4pt}
@@ -99,9 +99,9 @@
   \vfill%
 }
 \AtBeginSection{{%
-  \setbeamertemplate{background}[iiasa section]
-  \frame[plain,noframenumbering]{\sectionpage}%
-}}
+      \setbeamertemplate{background}[iiasa section]
+      \frame[plain,noframenumbering]{\sectionpage}%
+    }}
 
 % Footnotes: larger indent to clear background graphics
 \setbeamertemplate{footnote}{
@@ -112,7 +112,7 @@
 
 % footnote rule
 \renewcommand\footnoterule{
-\moveright 10mm \vbox{\color{white} \rule[1pt]{0.75\textwidth}{0.5pt}}}
+  \moveright 10mm \vbox{\color{white} \rule[1pt]{0.75\textwidth}{0.5pt}}}
 
 \defbeamertemplate{final slide}{iiasa}{%
   \iiasa@titlebackground

@@ -1,20 +1,23 @@
-% Title page: including background images
-\defbeamertemplate{title page}{iiasa}{%
+\newcommand\iiasa@titlebackground{
   \begin{tikzpicture}[
       overlay,
       remember picture,
-      every node/.style = {inner sep = 0mm, black},
+      every node/.style = {inner sep = 0mm, white},
     ]
     % background
     \node [anchor=north west]
     at (current page.north west)
-    {\includegraphics[width=\paperwidth, height=\paperheight]{background-2019-title.pdf}
-    };
+    {\includegraphics[width=\paperwidth, height=\paperheight]{background-2025\iiasa@titlebg}};
     % logo
-    \node [anchor=north east]
-    at ($(current page.north east) + (-2mm, -2mm)$)
-    {\includegraphics[height=8mm]{logo_white.eps}};
+    \node [anchor=north west]
+    at ($(current page.north west) + (10.5mm, -5mm)$)
+    {\includegraphics[height=8mm]{logo_white}};
   \end{tikzpicture}
+}
+
+% Title page: including background images
+\defbeamertemplate{title page}{iiasa}{%
+  \iiasa@titlebackground
   \begin{minipage}[b][\paperheight]{\textwidth}
     \usebeamertemplate*{title graphic}%
     \vfill%
@@ -53,13 +56,13 @@
     \linespread{1.0}%
     \inserttitle}%
   \par%
-  \vspace*{0.5em}
+  %\vspace*{0.5em}
 }
 \setbeamertemplate{subtitle}{
   \raggedright%
   \insertsubtitle%
   \par%
-  \vspace*{0.5em}
+  %\vspace*{0.5em}
 }
 
 \setlength{\iiasa@titleseparator@linewidth}{0.4pt}
@@ -97,8 +100,7 @@
 }
 \AtBeginSection{{%
       \setbeamertemplate{background}[iiasa section]
-      \setbeamercolor{background canvas}{bg=IIASAblue}
-      \frame{\sectionpage}%
+      \frame[plain,noframenumbering]{\sectionpage}%
     }}
 
 % Footnotes: larger indent to clear background graphics
@@ -110,12 +112,16 @@
 
 % footnote rule
 \renewcommand\footnoterule{
-  \moveright 10mm \vbox{\color{IIASAblue} \rule[1pt]{0.75\textwidth}{0.5pt}}}
+  \moveright 10mm \vbox{\color{white} \rule[1pt]{0.75\textwidth}{0.5pt}}}
 
 \defbeamertemplate{final slide}{iiasa}{%
-  \vfill%
-  \Huge \structure{Thank you!}
-  \vfill%
+  \iiasa@titlebackground
+  \begin{minipage}[b][\paperheight]{\textwidth}
+    \vfill%
+    \Huge \bfseries \color{white} Thank you!
+    \vfill%``
+    \vspace*{1mm}
+  \end{minipage}
 }
 
 % Set templates

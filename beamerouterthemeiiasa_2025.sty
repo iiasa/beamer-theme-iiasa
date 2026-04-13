@@ -1,21 +1,16 @@
 % Define templates
 
-% Background
+% Normal background
 \defbeamertemplate{background}{iiasa text}{%
   \begin{tikzpicture}[
       overlay,
       remember picture,
       every node/.style={inner sep=0mm}
     ]
-    % background
-    \node [anchor=north west]
-    at (current page.north west)
-    {\includegraphics[width=\paperwidth, height=\paperheight]{background-2024.pdf}
-    };
     % logo
-    \node [anchor=north]
-    at ($(current page.south east) + (-20mm, 6.5mm)$)
-    {\includegraphics[height=5mm]{logo_white}};
+    \node [anchor=south east]
+    at ($(current page.south east) + (-1mm, 1mm)$)
+    {\includegraphics[height=10mm]{logo-short_blue}};
   \end{tikzpicture}
 }
 
@@ -28,7 +23,7 @@
     % background
     \node [anchor=north west]
     at (current page.north west)
-    {\includegraphics[width=\paperwidth, height=\paperheight]{background-2024-title.pdf}};
+    {\includegraphics[width=\paperwidth, height=\paperheight]{background-2025a.png}};
   \end{tikzpicture}
 }
 
@@ -45,22 +40,22 @@
       remember picture,
       every node/.style={inner sep=0mm}
     ]
-    % background
-    \node [anchor=north west]
-    at (current page.north west)
-    {\includegraphics[width=\paperwidth, height=\paperheight]{background-2024-title.pdf}
-    };
     % logo
     \node [anchor=north]
     at ($(current page.south east) + (-20mm, 6.5mm)$)
-    {\includegraphics[height=5mm]{logo_white}};
+    {\includegraphics[height=5mm]{logo-short_blue}};
   \end{tikzpicture}
 }
 
 % Footline: display the frame number
 \defbeamertemplate{footline}{iiasa}{%
-  \begin{tikzpicture}[overlay, remember picture]
-    \node [anchor = north east, inner sep = 2mm] at ($(current page.south west) +(16mm, 6.5mm)$)
+  \begin{tikzpicture}[
+      overlay,
+      remember picture,
+      every node/.style={inner sep=0mm}
+    ]
+    \node [anchor = south west]
+    at ($(current page.south west) + (1mm, 1mm)$)
     {\usebeamertemplate*{frame numbering}};
   \end{tikzpicture}
 }
