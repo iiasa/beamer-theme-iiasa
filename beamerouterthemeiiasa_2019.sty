@@ -3,32 +3,32 @@
 % Background
 \defbeamertemplate{background}{iiasa text}{%
   \begin{tikzpicture}[
-    overlay,
-    remember picture,
-    every node/.style={inner sep=0mm}
+      overlay,
+      remember picture,
+      every node/.style={inner sep=0mm}
     ]
     % background
     \node [anchor=north west]
-      at (current page.north west)
-      {\includegraphics[width=\paperwidth, height=\paperheight]{general.pdf}
-      };
+    at (current page.north west)
+    {\includegraphics[width=\paperwidth, height=\paperheight]{background-2019.pdf}
+    };
     % logo
     \node [anchor=north east]
-      at ($(current page.north east) + (-4mm, -2mm)$)
-      {\includegraphics[height=9mm]{logo-short_white.eps}};
+    at ($(current page.north east) + (-4mm, -2mm)$)
+    {\includegraphics[height=9mm]{logo-short_white.eps}};
   \end{tikzpicture}
 }
 
 \defbeamertemplate{background}{iiasa section}{%
   \begin{tikzpicture}[
-    overlay,
-    remember picture,
-    every node/.style={inner sep=0mm}
+      overlay,
+      remember picture,
+      every node/.style={inner sep=0mm}
     ]
     % logo
     \node [anchor=north east]
-      at ($(current page.north east) + (-4mm, -2mm)$)
-      {\includegraphics[height=9mm]{logo-short_white.eps}};
+    at ($(current page.north east) + (-4mm, -2mm)$)
+    {\includegraphics[height=9mm]{logo-short_white.eps}};
   \end{tikzpicture}
 }
 
@@ -36,7 +36,7 @@
 \defbeamertemplate{footline}{iiasa}{%
   \begin{tikzpicture}[overlay, remember picture]
     \node [anchor = south east, inner sep = 2mm] at (current page.south east)
-      {\usebeamertemplate*{frame numbering}};
+    {\usebeamertemplate*{frame numbering}};
   \end{tikzpicture}
 }
 
@@ -62,8 +62,8 @@
     \strut\insertframetitle\strut\par%
     {%
       \ifx\insertframesubtitle\@empty%
-      \else%
-      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+        \else%
+        {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
       \fi
     }%
     \vskip-1ex%
