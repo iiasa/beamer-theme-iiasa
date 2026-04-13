@@ -19,6 +19,7 @@
   2025/.code={},
   2024/.code={},
   2019/.code={},
+  %
   % NB This is only supported in the 2019 theme
   /iiasa/frametitle/.cd,
   .is choice,
@@ -29,10 +30,24 @@
       \setbeamercolor{frametitle}{bg=white} % instead of no background
       \setbeamerfont{frametitle}{size=\large} % instead of \LARGE
     },
+  %
+  % Only supported in the 2025 theme.
+  /iiasa/title-bg/.cd,
+  .is choice,
+  .store in=\iiasa@titlebg,
+  a/.code={},
+  b/.code={},
+  c/.code={},
+  d/.code={},
 }
 
 % Command to set default values
-\newcommand{\iiasa@setdefaults}{\pgfkeys{/iiasa/version=2025}}
+\newcommand{\iiasa@setdefaults}{
+  \pgfkeys{
+    /iiasa/version=2025,
+    /iiasa/title-bg=a,
+  }
+}
 
 % Process options
 \iiasa@setdefaults
